@@ -7,3 +7,5 @@ __pycache__/
 .env
 # Ignore data files
 /data
+# Ignore DS_STORE files
+.DS_STORE
