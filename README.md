@@ -13,7 +13,7 @@ GitHub.
 ## Project Folder Rules
 - Keep project files organized and clearly named.
 
-## Data Storage
+## Data Storage (Homework 5)
 - **Folder Structure:**
     - data/raw
     - data/processed
@@ -27,7 +27,23 @@ GitHub.
         2. file size is very small compared to CSV
         3. use-case: for storing large scale data
 
-## env Variables
+## env Variables (Homework 5)
 - raw and processed data paths are stored in .env, making it more portable and secured
 - api_keys are also stored in the .env file
 - .env.example file is stored in the repo for easy replication of .env file
+
+## Data Cleaning (Homework 6)
+### 1. Handling Missing Data
+We fill missing numbers with the median when data are missing randomly. For time series, we fill missing values by using nearby points. If missing data isn’t critical, we may drop those rows. Any filling method changes the data’s averages and patterns.
+
+### 2. Types of Missing Data
+Missing values can be random (MCAR: safe to fill or drop), related to other data (MAR: can fill using related info), or dependent on unseen factors (MNAR: needs expert insight). Mistakes in understanding these can skew results.
+
+### 3. Cleaning the Data
+We remove impossible or out-of-range values assuming they’re errors. If a column or row has too much missing data, we drop it, assuming it’s not important. But this leads to removing some rare cases where the data is valid.
+
+### 4. Scaling Data
+StandardScaler assume data follow a normal pattern, MinMaxScaler expect minimum and maximum values to be typical.
+
+### 5. Making It Reproducible
+Cleaning.py is designed assuming the future datasets will adhere to similar dataframe structure
